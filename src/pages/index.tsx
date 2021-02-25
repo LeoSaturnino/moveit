@@ -5,26 +5,36 @@ import { Profile } from "../components/Profile";
 import styles from "../styles/pages/Home.module.css";
 import Head from 'next/head';
 import { ChallengeBox } from "../components/ChallengeBox";
+import { useContext } from "react";
+import { ChallengesContext } from "../contexts/ChallengesContext";
+import { ListUsers } from "../components/ListUsers";
 
 export default function Home() {
+  const { user } = useContext(ChallengesContext);
   return (
     <div className={styles.container}>
       <Head>
         <title>Início | move.it</title>
       </Head>
-      
-      <ExperinceBar />
+      { user == null ? (
+        <ListUsers />
+      ) : (
+          <>
+            <ExperinceBar />
 
-      <section>
-        <div>
-          <Profile />
-          <CompleteChallenges />
-          <Countdown />
-        </div>
-        <div>
-          <ChallengeBox/>
-        </div>
-      </section>
-    </div>
+            <section>
+              <div>
+                <Profile />
+                <CompleteChallenges />
+                <Countdown />
+              </div>
+              <div>
+                <ChallengeBox />
+              </div>
+            </section>
+          </>
+        )
+      }
+    </div >
   )
 }

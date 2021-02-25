@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Leo Saturnino",
+        "image": "leosaturnino",
+        "level": 1,
+        "challengeCompleted": 0,
+        "currentExperience": 0
+    },
+    {
+        "id": 2,
+        "name": "Julio Finger",
+        "image": "julio-finger",
+        "level": 1,
+        "challengeCompleted": 0,
+        "currentExperience": 0
+    },
+    {
+        "id": 3,
+        "name": "Diogo TM",
+        "image": "diogotm",
+        "level": 1,
+        "challengeCompleted": 0,
+        "currentExperience": 0
+    }
+]
