@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { ChallengesContext } from "../contexts/ChallengesContext";
+import { UserContext } from "../contexts/UsersContext";
 import styles from "../styles/componentes/CompleteChallenges.module.css";
 
 export function CompleteChallenges() {
-    const { user } = useContext(ChallengesContext);
+    const { user } = useContext(UserContext);
 
     return (
         <div className={styles.completeChallengesContainer}>

@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { ChallengesContext } from "../contexts/ChallengesContext";
+import { UserContext } from "../contexts/UsersContext";
 import styles from "../styles/componentes/Profile.module.css";
 
 export function Profile(props) {
-    let { user } = useContext(ChallengesContext);
+    let { user } = useContext(UserContext);
     if (props.user) {
         user = props.user;
     }
@@ -12,7 +13,7 @@ export function Profile(props) {
         <div className={styles.profileContainer}>
             { user ? (
                 <>
-                    <img src={`https://github.com/${user.image}.png`} />
+                    <img src={`${user.image}`} />
                     <div>
                         <strong>{user.name}</strong>
                         <p>

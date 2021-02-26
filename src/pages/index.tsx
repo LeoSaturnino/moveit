@@ -6,37 +6,74 @@ import styles from "../styles/pages/Home.module.css";
 import Head from 'next/head';
 import { ChallengeBox } from "../components/ChallengeBox";
 import { useContext } from "react";
-import { ChallengesContext } from "../contexts/ChallengesContext";
+import { ChallengeProvider, ChallengesContext } from "../contexts/ChallengesContext";
 import { ListUsers } from "../components/ListUsers";
 import { CountdownProvider } from "../contexts/CountdownContext";
+import { UserContext, UserProvider } from "../contexts/UsersContext";
+const axios = require('axios');
 
-export default function Home() {
-  const { user } = useContext(ChallengesContext);
+interface HomeProps {
+  users: [];
+  challenges: [];
+}
+
+export default function Home(props) {
+  const { user } = useContext(UserContext);
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Início | move.it</title>
-      </Head>
-      { user == null ? (
-        <ListUsers />
-      ) : (
-          <>
-            <ExperinceBar />
-            <CountdownProvider>
-              <section>
-                <div>
-                  <Profile />
-                  <CompleteChallenges />
-                  <Countdown />
-                </div>
-                <div>
-                  <ChallengeBox />
-                </div>
-              </section>
-            </CountdownProvider>
-          </>
-        )
-      }
-    </div >
+    <UserProvider
+      users={props.users}
+      challenges={props.challenges}>
+      <ChallengeProvider>
+        <div className={styles.container}>
+          <Head>
+            <title>Início | move.it</title>
+          </Head>
+          {user == null ? (
+            <ListUsers />
+          ) : (
+              <>
+                <ExperinceBar />
+                <CountdownProvider>
+                  <section>
+                    <div>
+                      <Profile />
+                      <CompleteChallenges />
+                      <Countdown />
+                    </div>
+                    <div>
+                      <ChallengeBox />
+                    </div>
+                  </section>
+                </CountdownProvider>
+              </>
+            )
+          }
+        </div >
+      </ChallengeProvider>
+    </UserProvider>
   )
+}
+
+export const getServerSideProps = async () => {
+  let users = [];
+  let challenges = [];
+
+  axios.get('localhost:3333/users')
+    .then((resp) => {
+      users = resp;
+    }).catch((erro) => {
+      console.log('Erro ao buscar os Usuários');
+    });
+
+
+  axios.get('localhost:3333/users')
+    .then((resp) => {
+      challenges = resp;
+    }).catch((erro) => {
+      console.log('Erro ao buscar os Desafios');
+    });
+
+  return {
+    props: [users, challenges]
+  }
 }
