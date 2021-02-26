@@ -1,5 +1,4 @@
 import { createContext, useState, ReactNode, useEffect, useContext } from 'react';
-import challenges from '../../challenges.json';
 import { UserContext } from './UsersContext';
 
 interface Challenge {
@@ -7,8 +6,10 @@ interface Challenge {
     description: string;
     amount: number;
 }
+
 interface ChallengesContextData {
     activeChallenge: Challenge;
+    user: any;
     experienceNextLevel: number;
     levelup: () => void;
     startNewChallenge: () => void;
@@ -23,11 +24,11 @@ interface ChallengeProviderProps {
 export const ChallengesContext = createContext({} as ChallengesContextData);
 
 export function ChallengeProvider({ children }: ChallengeProviderProps) {
-    const { user } = useContext(UserContext);
+    const { user, challenges } = useContext(UserContext);
 
     const [activeChallenge, setActiveChallenge] = useState(null);
 
-    const experienceNextLevel = Math.pow(((user.level ?? 1 + 1) * 4), 2);
+    const experienceNextLevel = (user) ? Math.pow(((user.level + 1) * 4), 2) : Math.pow(((1 + 1) * 4), 2);
 
     useEffect(() => {
         Notification.requestPermission();
@@ -36,7 +37,6 @@ export function ChallengeProvider({ children }: ChallengeProviderProps) {
     function levelup() {
         user.level = user.level + 1;
     }
-
 
     function startNewChallenge() {
         const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
@@ -79,7 +79,7 @@ export function ChallengeProvider({ children }: ChallengeProviderProps) {
     return (
         <ChallengesContext.Provider
             value={{
-                activeChallenge, experienceNextLevel,
+                activeChallenge, experienceNextLevel, user,
                 levelup, startNewChallenge, resetChallenge, completedChallenge
             }}>
             { children}

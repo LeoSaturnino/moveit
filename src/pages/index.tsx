@@ -1,16 +1,11 @@
-import { CompleteChallenges } from "../components/CompleteChallenges";
-import { Countdown } from "../components/Countdown";
-import { ExperinceBar } from "../components/ExperinceBar";
-import { Profile } from "../components/Profile";
 import styles from "../styles/pages/Home.module.css";
 import Head from 'next/head';
-import { ChallengeBox } from "../components/ChallengeBox";
-import { useContext } from "react";
-import { ChallengeProvider, ChallengesContext } from "../contexts/ChallengesContext";
-import { ListUsers } from "../components/ListUsers";
-import { CountdownProvider } from "../contexts/CountdownContext";
-import { UserContext, UserProvider } from "../contexts/UsersContext";
-const axios = require('axios');
+import { ChallengeProvider } from "../contexts/ChallengesContext";
+import {  UserProvider } from "../contexts/UsersContext";
+import { Main } from "../components/Main";
+
+import challengesJson from '../../challenges.json';
+import usersJson from '../../users.json';
 
 interface HomeProps {
   users: [];
@@ -18,7 +13,6 @@ interface HomeProps {
 }
 
 export default function Home(props) {
-  const { user } = useContext(UserContext);
   return (
     <UserProvider
       users={props.users}
@@ -28,27 +22,8 @@ export default function Home(props) {
           <Head>
             <title>Início | move.it</title>
           </Head>
-          {user == null ? (
-            <ListUsers />
-          ) : (
-              <>
-                <ExperinceBar />
-                <CountdownProvider>
-                  <section>
-                    <div>
-                      <Profile />
-                      <CompleteChallenges />
-                      <Countdown />
-                    </div>
-                    <div>
-                      <ChallengeBox />
-                    </div>
-                  </section>
-                </CountdownProvider>
-              </>
-            )
-          }
-        </div >
+          <Main />
+        </div>
       </ChallengeProvider>
     </UserProvider>
   )
@@ -57,23 +32,26 @@ export default function Home(props) {
 export const getServerSideProps = async () => {
   let users = [];
   let challenges = [];
+  users = usersJson;
+  challenges = challengesJson;
 
-  axios.get('localhost:3333/users')
-    .then((resp) => {
-      users = resp;
-    }).catch((erro) => {
-      console.log('Erro ao buscar os Usuários');
-    });
+  // console.log(challenges);
+  // axios.get('localhost:3333/users')
+  //   .then((resp) => {
+  //     users = resp;
+  //   }).catch((erro) => {
+  //     console.log('Erro ao buscar os Usuários');
+  //   });
 
 
-  axios.get('localhost:3333/users')
-    .then((resp) => {
-      challenges = resp;
-    }).catch((erro) => {
-      console.log('Erro ao buscar os Desafios');
-    });
+  // axios.get('localhost:3333/users')
+  //   .then((resp) => {
+  //     challenges = resp;
+  //   }).catch((erro) => {
+  //     console.log('Erro ao buscar os Desafios');
+  //   });
 
   return {
-    props: [users, challenges]
+    props: { users, challenges }
   }
 }

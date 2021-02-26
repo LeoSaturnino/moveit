@@ -2,8 +2,8 @@ import axios from 'axios';
 import { createContext, ReactNode, useState } from 'react';
 
 interface UserContextData {
-    users: [];
-    challenges: [];
+    users: User[];
+    challenges: Challenge[];
     user: User;
     selectUser: (user) => void;
     logoutUser: () => void;
@@ -12,8 +12,14 @@ interface UserContextData {
 
 interface UserProviderProps {
     children: ReactNode;
-    users: [];
-    challenges: [];
+    users: User[];
+    challenges: Challenge[];
+}
+
+interface Challenge {
+    type: string;
+    description: string;
+    amount: number;
 }
 
 interface User {
@@ -24,7 +30,6 @@ interface User {
     currentExperience: number;
 }
 
-
 export const UserContext = createContext({} as UserContextData)
 
 export function UserProvider({ children, ...rest }: UserProviderProps) {
@@ -32,7 +37,6 @@ export function UserProvider({ children, ...rest }: UserProviderProps) {
     const [user, setUser] = useState(null);
 
     function selectUser(user: User) {
-        console.log(user);
         setUser(user);
     }
 
