@@ -16,9 +16,6 @@ interface User {
 }
 
 interface ChallengesContextData {
-    level: number;
-    currentExperience: number;
-    challengeCompleted: number;
     activeChallenge: Challenge;
     experienceNextLevel: number;
     user: User;
@@ -39,23 +36,17 @@ export function ChallengeProvider({ children }: ChallengeProviderProps) {
 
     const [user, setUser] = useState(null);
 
-    const [level, setLevel] = useState(1);
-    const [currentExperience, setcurrentExperience] = useState(0);
-    const [challengeCompleted, setchallengeCompleted] = useState(0);
     const [activeChallenge, setActiveChallenge] = useState(null);
 
-    const experienceNextLevel = Math.pow(((level + 1) * 4), 2);
+    const experienceNextLevel = (user) ? Math.pow(((user.level + 1) * 4), 2) : Math.pow(((1 + 1) * 4), 2);
 
     function selectUser(user: User) {
         console.log(user);
         setUser(user);
-        setLevel(user.level);
-        setcurrentExperience(user.currentExperience);
-        setchallengeCompleted(user.challengeCompleted);
     }
 
     function levelup() {
-        setLevel(level + 1);
+        user.level = user.level + 1;
     }
 
     function startNewChallenge() {
@@ -70,13 +61,27 @@ export function ChallengeProvider({ children }: ChallengeProviderProps) {
     }
 
     function completedChallenge() {
+        if (!activeChallenge) {
+            return;
+        }
 
+        const { amount } = activeChallenge;
+        let finalExperience = user.currentExperience + amount;
+
+        if (finalExperience >= experienceNextLevel) {
+            finalExperience = finalExperience - experienceNextLevel;
+            levelup();
+        }
+
+        user.currentExperience = finalExperience;
+        user.challengeCompleted += 1;
+        setActiveChallenge(null);
     }
 
     return (
         <ChallengesContext.Provider
             value={{
-                level, currentExperience, challengeCompleted, activeChallenge, user, experienceNextLevel,
+                activeChallenge, user, experienceNextLevel,
                 levelup, startNewChallenge, resetChallenge, completedChallenge, selectUser
             }}>
             { children}

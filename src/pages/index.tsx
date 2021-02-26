@@ -8,6 +8,7 @@ import { ChallengeBox } from "../components/ChallengeBox";
 import { useContext } from "react";
 import { ChallengesContext } from "../contexts/ChallengesContext";
 import { ListUsers } from "../components/ListUsers";
+import { CountdownProvider } from "../contexts/CountdownContext";
 
 export default function Home() {
   const { user } = useContext(ChallengesContext);
@@ -21,17 +22,18 @@ export default function Home() {
       ) : (
           <>
             <ExperinceBar />
-
-            <section>
-              <div>
-                <Profile />
-                <CompleteChallenges />
-                <Countdown />
-              </div>
-              <div>
-                <ChallengeBox />
-              </div>
-            </section>
+            <CountdownProvider>
+              <section>
+                <div>
+                  <Profile />
+                  <CompleteChallenges />
+                  <Countdown />
+                </div>
+                <div>
+                  <ChallengeBox />
+                </div>
+              </section>
+            </CountdownProvider>
           </>
         )
       }
