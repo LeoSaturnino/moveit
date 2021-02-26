@@ -1,8 +1,8 @@
 import styles from "../styles/pages/Home.module.css";
 import Head from 'next/head';
 import { ChallengeProvider } from "../contexts/ChallengesContext";
-import {  UserProvider } from "../contexts/UsersContext";
-import { Main } from "../components/Main";
+import { UserProvider } from "../contexts/UsersContext";
+import { MainBody } from "../components/MainBody";
 
 import challengesJson from '../../challenges.json';
 import usersJson from '../../users.json';
@@ -12,7 +12,7 @@ interface HomeProps {
   challenges: [];
 }
 
-export default function Home(props) {
+export default function Home(props: HomeProps) {
   return (
     <UserProvider
       users={props.users}
@@ -22,7 +22,7 @@ export default function Home(props) {
           <Head>
             <title>Início | move.it</title>
           </Head>
-          <Main />
+          <MainBody />
         </div>
       </ChallengeProvider>
     </UserProvider>

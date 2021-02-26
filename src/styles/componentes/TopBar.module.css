@@ -1,0 +1,10 @@
+.topBarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.topBarContainer div {
+    margin: 0.25rem 1rem !important;
+}

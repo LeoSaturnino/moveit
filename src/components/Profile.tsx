@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { ChallengesContext } from "../contexts/ChallengesContext";
 import { UserContext } from "../contexts/UsersContext";
 import styles from "../styles/componentes/Profile.module.css";
 

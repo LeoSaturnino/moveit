@@ -7,14 +7,18 @@ import { Countdown } from './Countdown';
 import { ExperinceBar } from './ExperinceBar';
 import { ListUsers } from './ListUsers';
 import { Profile } from './Profile';
+import { TopBar } from './TopBar';
 
-export function Main() {
+export function MainBody() {
     const { user } = useContext(UserContext);
     console.log(user);
     return (
         <>
             {user == null ? (
-                <ListUsers />
+                <>
+                    <TopBar />
+                    <ListUsers />
+                </>
             ) : (
                     <>
                         <ExperinceBar />
