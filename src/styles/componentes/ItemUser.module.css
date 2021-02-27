@@ -1,4 +1,32 @@
 .itemUserContainer {
     list-style-type: none;
     margin: 2rem;
+
+    display: flex;
+    align-items: center;
+}
+
+.itemUserContainer > img {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+}
+
+.itemUserContainer div {
+    margin-left: 1.5rem;
+}
+
+.itemUserContainer div strong {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--title);
+}
+
+.itemUserContainer div p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.itemUserContainer div p img {
+    margin-right: 0.5rem;
 }

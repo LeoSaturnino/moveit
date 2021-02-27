@@ -1,0 +1,109 @@
+.startContainer {
+    position: relative;
+    flex: 1;
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    flex-direction: row;
+    /* border: 1px solid var(--gray-line); */
+    background: #f3f3f3;
+    border-radius: 12px;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.infoContainer h1{
+    margin-bottom: 3rem;
+}
+
+.infoContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3rem;
+    padding-top: 3rem;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+.iconsContainer{
+    flex: 1;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 3rem;
+}
+
+.iconsContainer img{
+    width: 4rem;
+    height: 4rem;
+    margin: 0.2rem;
+}
+
+.loginContainer{
+    margin: 5rem;
+    /* padding: 1rem; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.loginContainer p {
+    color: var(--blue-dark);
+    margin-bottom: 0.25rem
+}
+
+.inputContainer {
+    display: flex;
+    /* justify-content: center; */
+    line-height: 1;
+}
+
+.inputContainer input{
+    height: 2.5rem;
+    margin: 0;
+    padding-left: 0.5rem;
+}
+
+.inputContainer button {
+    color: var(--white);
+    background: var(--blue-dark);
+    border: 0;
+    padding: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0;
+    font-size: 0;
+}
+
+.inputContainer button:hover {
+    background: var(--green);
+}
+
+.inputContainer img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.infoDevContainer {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+}
+
+.loginContainer span{
+    margin-top: 1rem;
+    color: var(--red);
+    height: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .startContainer{
+        flex-direction: column;
+    }
+}

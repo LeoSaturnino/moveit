@@ -1,4 +1,5 @@
 import { createContext, useState, ReactNode, useEffect, useContext } from 'react';
+import { LevelupModal } from '../components/LevelupModal';
 import { UserContext } from './UsersContext';
 
 interface Challenge {
@@ -15,6 +16,7 @@ interface ChallengesContextData {
     startNewChallenge: () => void;
     resetChallenge: () => void;
     completedChallenge: () => void;
+    closeLevelupModal: () => void;
 }
 
 interface ChallengeProviderProps {
@@ -27,6 +29,7 @@ export function ChallengeProvider({ children }: ChallengeProviderProps) {
     const { user, challenges } = useContext(UserContext);
 
     const [activeChallenge, setActiveChallenge] = useState(null);
+    const [isLevelModalOpen, setIsLevelModalOpen] = useState(false);
 
     const experienceNextLevel = (user) ? Math.pow(((user.level + 1) * 4), 2) : Math.pow(((1 + 1) * 4), 2);
 
@@ -36,6 +39,11 @@ export function ChallengeProvider({ children }: ChallengeProviderProps) {
 
     function levelup() {
         user.level = user.level + 1;
+        setIsLevelModalOpen(true);
+    }
+
+    function closeLevelupModal() {
+        setIsLevelModalOpen(false);
     }
 
     function startNewChallenge() {
@@ -80,9 +88,14 @@ export function ChallengeProvider({ children }: ChallengeProviderProps) {
         <ChallengesContext.Provider
             value={{
                 activeChallenge, experienceNextLevel, user,
-                levelup, startNewChallenge, resetChallenge, completedChallenge
+                levelup, startNewChallenge, resetChallenge, completedChallenge, closeLevelupModal
             }}>
             { children}
+            { isLevelModalOpen ? (
+                <LevelupModal />
+            ) : (
+                    <></>
+                )}
         </ChallengesContext.Provider>
     )
 }

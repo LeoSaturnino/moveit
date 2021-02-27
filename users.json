@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "username": "leosaturnino",
         "name": "Leo Saturnino",
         "image": "https://github.com/leosaturnino.png",
         "level": 1,
@@ -9,6 +10,7 @@
     },
     {
         "id": 2,
+        "username": "julio-finger",
         "name": "Julio Finger",
         "image": "https://github.com/julio-finger.png",
         "level": 1,
@@ -17,6 +19,7 @@
     },
     {
         "id": 3,
+        "username": "/diogo-tm",
         "name": "Diogo TM",
         "image": "https://github.com/diogo-tm.png",
         "level": 1,

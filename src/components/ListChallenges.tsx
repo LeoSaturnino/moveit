@@ -6,7 +6,6 @@ import { ItemChallenge } from './ItemChallenge';
 
 export function ListChallenges() {
     const { challenges } = useContext(UserContext);
-    console.log(challenges)
     return (
         <div className={styles.listChallengesContainer}>
             <h1>Desafios</h1>
@@ -15,6 +14,10 @@ export function ListChallenges() {
                     <ItemChallenge key={i} challenge={c} />
                 ))}
             </ul>
+            
+            <button type="button">
+                <img src="/icons/plus.svg" alt="Adicionar" />
+            </button>
         </div>
     )
 }

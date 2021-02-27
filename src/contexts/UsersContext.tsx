@@ -24,6 +24,7 @@ interface Challenge {
 
 interface User {
     name: string;
+    username:string;
     image: string;
     level: number;
     challengeCompleted: number;

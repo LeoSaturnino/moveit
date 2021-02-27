@@ -70,5 +70,47 @@
       "type": "body",
       "description": "Em pé, gire a cintura o máximo que puder para a esquerda, segure por cinco segundos. Repita para a direita.",
       "amount": 90
+    },
+    {
+      "id": 13,
+      "type": "coffee",
+      "description": "Hora de Recarregar as energias, tome uma Xícara de Café e depois volte a se concentrar.",
+      "amount": 50
+    },
+    {
+      "id": 14,
+      "type": "celular",
+      "description": "Está autorizado a dar aquela olhadinha básica nas Redes Socias, por no máximo 5 minutos.",
+      "amount": 90
+    },
+    {
+      "id": 15,
+      "type": "people",
+      "description": "Interaje com algum amigo que esteja em um momento de pausa.",
+      "amount": 70
+    },
+    {
+      "id": 16,
+      "type": "people",
+      "description": "Ajude um colega a finalizar alguma tarefa.",
+      "amount": 120
+    },
+    {
+      "id": 17,
+      "type": "coffee",
+      "description": "Hora do café!!! Mas dessa vez vamos dificultar um pouco, experimente tomar uma xícara sem açucar.",
+      "amount": 100
+    },
+    {
+      "id": 18,
+      "type": "coffee",
+      "description": "Uma pequena pausa para o lanche, coma de 1 a 3 biscoito e tome uma xácara de café.",
+      "amount": 90
+    },
+    {
+      "id": 19,
+      "type": "celular",
+      "description": "Confira seus e-mails, vai que você recebeu algum e-mail importante, va descobrir.",
+      "amount": 40
     }
   ]

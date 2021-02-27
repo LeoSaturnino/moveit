@@ -2,11 +2,8 @@ import { useContext } from "react";
 import { UserContext } from "../contexts/UsersContext";
 import styles from "../styles/componentes/Profile.module.css";
 
-export function Profile(props) {
+export function Profile() {
     let { user } = useContext(UserContext);
-    if (props.user) {
-        user = props.user;
-    }
 
     return (
         <div className={styles.profileContainer}>

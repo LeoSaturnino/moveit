@@ -5,19 +5,18 @@ import { ChallengeBox } from './ChallengeBox';
 import { CompleteChallenges } from './CompleteChallenges';
 import { Countdown } from './Countdown';
 import { ExperinceBar } from './ExperinceBar';
-import { ListUsers } from './ListUsers';
 import { Profile } from './Profile';
+import { StartUser } from './StartUser';
 import { TopBar } from './TopBar';
 
 export function MainBody() {
     const { user } = useContext(UserContext);
-    console.log(user);
     return (
         <>
             {user == null ? (
                 <>
                     <TopBar />
-                    <ListUsers />
+                    <StartUser />
                 </>
             ) : (
                     <>

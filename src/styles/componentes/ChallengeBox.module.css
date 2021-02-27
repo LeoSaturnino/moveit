@@ -68,6 +68,10 @@
 .challengeActive main p {
     line-height: 1.5;
 }
+.challengeActive main img{
+    width: 10rem;
+    height: 10rem;
+}
 
 .challengeActive footer {
     display: grid;
