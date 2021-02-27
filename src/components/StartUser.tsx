@@ -31,10 +31,12 @@ export function StartUser() {
             <div className={styles.infoContainer}>
                 <h1>Move iT</h1>
 
-                <p>Aplicação que junta a técnica de Pomodoro + atividades laborais
-                utilizando a técnicas de gamification visando aumentar a produtividade, o foco,
-                aliviar o stress e evitar o desenvolvimento de problemas
-                de Ergonomia no Trabalho.</p>
+                <p>Aplicação que junta a técnica de Pomodoro + a realização de ginásticas laborais
+                utilizando técnicas de gamification para propocionar aumento de produtividade e 
+                melhora da saúde do colaborador durante as atividades no Trabalho.
+                Os Desafios servem para melhorar a concetração, alivar o stress  
+                e evitar o desenvolvimento de problemas de Ergonomia, tornando o ambiente
+                de Trabalho mais descontraído.</p>
                 <div className={styles.iconsContainer}>
                     <img src="/icons/body.svg" alt="Iniciar" />
                     <img src="/icons/eye.svg" alt="Iniciar" />
