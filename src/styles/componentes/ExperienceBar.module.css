@@ -29,13 +29,10 @@ span.currentExperience {
 }
 
 .spanClose {
-    color: var(--red);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 25px;
     height: 1.15rem;
     width: 1.15rem;
-    border: 1px solid var(--red);
-    border-radius: 50%;
 }

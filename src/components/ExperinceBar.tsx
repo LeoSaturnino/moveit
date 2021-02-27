@@ -17,7 +17,9 @@ export function ExperinceBar() {
                 <span className={styles.currentExperience} style={{ left: `${percentToNextLevel}%` }}>{user.currentExperience}px</span>
             </div>
             <span>{experienceNextLevel} xp</span>
-            <span className={styles.spanClose} onClick={logoutUser}>x</span>
+            <span className={styles.spanClose} onClick={logoutUser}>
+                <img src="icons/close.svg" alt="close" />
+            </span>
         </header>
     )
 }

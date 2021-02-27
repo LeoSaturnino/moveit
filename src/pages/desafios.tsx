@@ -6,6 +6,7 @@ import challengesJson from '../../challenges.json';
 import usersJson from '../../users.json';
 import { useState } from "react";
 import { TopBar } from "../components/TopBar";
+import { ListChallenges } from "../components/ListChallenges";
 
 interface DesafiosProps {
     users: [];
@@ -29,9 +30,7 @@ export default function Desafios(props: DesafiosProps) {
                         FORMULARIO
                     </div>
                 ) : (
-                        <div>
-                            LIST DESAFIOS
-                        </div>
+                      <ListChallenges/>
                     )}
             </div>
         </UserProvider>
