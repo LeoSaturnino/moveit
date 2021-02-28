@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { createContext, ReactNode, useState } from 'react';
+import axios from 'axios';
 
 interface UserContextData {
     users: User[];
@@ -42,6 +42,7 @@ export function UserProvider({ children, ...rest }: UserProviderProps) {
     }
 
     function logoutUser() {
+        console.log('dsfsdfsdfsdf')
         setUser(null);
     }
 
@@ -49,7 +50,7 @@ export function UserProvider({ children, ...rest }: UserProviderProps) {
         if (!user) {
             return;
         }
-        axios.post('localhost:3333/user', user)
+        axios.put('http://localhost:3333/user', user)
             .then((resp) => {
                 console.log('Usuário Salvo');
             })

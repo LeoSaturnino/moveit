@@ -4,10 +4,15 @@ import { UserContext } from '../contexts/UsersContext';
 import styles from '../styles/componentes/ExperienceBar.module.css';
 
 export function ExperinceBar() {
-    const { experienceNextLevel } = useContext(ChallengesContext);
+    const { experienceNextLevel, resetChallenge } = useContext(ChallengesContext);
     const { user, logoutUser } = useContext(UserContext);
 
     const percentToNextLevel = Math.round(user.currentExperience * 100) / experienceNextLevel;
+
+    function logout(){
+        resetChallenge();
+        logoutUser();
+    }
 
     return (
         <header className={styles.experienceBar}>
@@ -17,7 +22,7 @@ export function ExperinceBar() {
                 <span className={styles.currentExperience} style={{ left: `${percentToNextLevel}%` }}>{user.currentExperience}px</span>
             </div>
             <span>{experienceNextLevel} xp</span>
-            <span className={styles.spanClose} onClick={logoutUser}>
+            <span className={styles.spanClose} onClick={logout}>
                 <img src="icons/close.svg" alt="close" />
             </span>
         </header>

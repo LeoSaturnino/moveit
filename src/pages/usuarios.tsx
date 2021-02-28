@@ -1,12 +1,15 @@
-import Head  from "next/head";
-import { UserProvider } from "../contexts/UsersContext";
+import Head from "next/head";
+import { UserContext, UserProvider } from "../contexts/UsersContext";
 import styles from "../styles/pages/Usuarios.module.css";
 
 import challengesJson from '../../challenges.json';
 import usersJson from '../../users.json';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ListUsers } from "../components/ListUsers";
 import { TopBar } from "../components/TopBar";
+import { FormUser } from "../components/FormUser";
+import { MainUsers } from "../components/MainUsers";
+import { FormProvider } from "../contexts/FormContext";
 
 interface UsuariosProps {
     users: [];
@@ -14,7 +17,6 @@ interface UsuariosProps {
 }
 
 export default function Usuarios(props: UsuariosProps) {
-    const [cadastro, setCadastro] = useState(false);
 
     return (
         <UserProvider
@@ -22,16 +24,12 @@ export default function Usuarios(props: UsuariosProps) {
             challenges={props.challenges}>
             <div className={styles.container}>
                 <Head>
-                    <title>Usuarios | move.it</title>
+                    <title>Usuários | Move iT</title>
                 </Head>
                 <TopBar />
-                {cadastro ? (
-                        <div>
-                            FORMULARIO
-                        </div>
-                ) : (
-                    <ListUsers />
-                    )}
+                <FormProvider>
+                    <MainUsers />
+                </FormProvider>
             </div>
         </UserProvider>
     )

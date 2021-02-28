@@ -13,10 +13,6 @@ export function ListUsers() {
                     <ItemUser key={i} user={u} />
                 ))}
             </ul>
-
-            <button type="button">
-                <img src="/icons/plus.svg" alt="Adicionar" />
-            </button>
         </div>
     )
 }

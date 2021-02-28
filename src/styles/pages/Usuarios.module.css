@@ -6,6 +6,7 @@
 
     display: flex;
     flex-direction: column;
+    position: relative;
 
     overflow-y: scroll;
     -ms-overflow-style: none;    /* Internet Explorer 10+ */
@@ -18,10 +19,18 @@
     height: 0;
 }
 
-.container section {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6.25rem;
-    align-content: center;
+.container button {
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    right: 10rem;
+    top: 9rem;
+    background: transparent;
+    border: 0;
+    font-size: 0;
+}
+
+.container button img{
+    height: 1.2rem;
+    width: 1.2rem;
 }

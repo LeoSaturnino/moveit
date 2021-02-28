@@ -14,10 +14,6 @@ export function ListChallenges() {
                     <ItemChallenge key={i} challenge={c} />
                 ))}
             </ul>
-            
-            <button type="button">
-                <img src="/icons/plus.svg" alt="Adicionar" />
-            </button>
         </div>
     )
 }

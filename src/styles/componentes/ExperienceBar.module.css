@@ -35,4 +35,5 @@ span.currentExperience {
     margin-left: 25px;
     height: 1.15rem;
     width: 1.15rem;
+    cursor: pointer;
 }

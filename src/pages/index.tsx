@@ -20,7 +20,7 @@ export default function Home(props: HomeProps) {
       <ChallengeProvider>
         <div className={styles.container}>
           <Head>
-            <title>Início | move.it</title>
+            <title>Início | Move iT</title>
           </Head>
           <MainBody />
         </div>
