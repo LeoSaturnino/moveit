@@ -26,15 +26,21 @@ export function StartUser() {
         }
     }
 
+    function startKeyEnter(e) {
+        if (e.key === 'Enter') {
+            start();
+        }
+    }
+
     return (
         <div className={styles.startContainer}>
             <div className={styles.infoContainer}>
                 <h1>Move iT</h1>
 
                 <p>Aplicação que junta a técnica de Pomodoro + a realização de ginásticas laborais
-                utilizando técnicas de gamification para propocionar aumento de produtividade e 
+                utilizando técnicas de gamification para propocionar aumento de produtividade e
                 melhora da saúde do colaborador durante as atividades no Trabalho.
-                Os Desafios servem para melhorar a concetração, alivar o stress  
+                Os Desafios servem para melhorar a concetração, alivar o stress
                 e evitar o desenvolvimento de problemas de Ergonomia, tornando o ambiente
                 de Trabalho mais descontraído.</p>
                 <div className={styles.iconsContainer}>
@@ -50,7 +56,7 @@ export function StartUser() {
                 <p>Iniciar Aplicação</p>
                 <div className={styles.inputContainer}>
 
-                    <input placeholder="Username" type="text" value={name} onChange={(e) => { setName(e.target.value) }} />
+                    <input placeholder="Username" type="text" value={name} onKeyDown={startKeyEnter} onChange={(e) => { setName(e.target.value) }} />
                     <button type="button" onClick={start}>
                         <img src="/icons/seta-direita-fina.svg" alt="Iniciar" />
                     </button>
