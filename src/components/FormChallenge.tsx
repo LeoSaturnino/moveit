@@ -34,26 +34,32 @@ export function FormChallenge() {
         <div className={styles.formContainer}>
             <h1>Cadastro Desafio</h1>
             <form onSubmit={handleSubmit}>
-                <label>
-                    Tipo:
-                <select value={type} onChange={(e) => { setType(e.target.value) }} >
+                <div className={styles.inputContainer}>
+                    <label>
+                        Tipo
+                    </label>
+                    <select value={type} onChange={(e) => { setType(e.target.value) }} >
                         <option value="body">Corpo</option>
                         <option value="eye">Olhos</option>
                         <option value="celular">Celular</option>
                         <option value="coffee">Café</option>
                         <option value="people">Pessoas</option>
                     </select>
-                </label>
-                <label>
-                    Descrição:
-                <input type="text" value={description} onChange={(e) => { setDescription(e.target.value) }} />
-                </label>
-                <label>
-                    Valor XP:
-                <input type="number" value={amount} onChange={(e) => { setAmount(parseInt(e.target.value)) }} />
-                </label>
+                </div>
+                <div className={styles.inputContainer}>
+                    <label>
+                        Descrição
+                    </label>
+                    <input type="text" value={description} onChange={(e) => { setDescription(e.target.value) }} />
+                </div>
+                <div className={styles.inputContainer}>
+                    <label>
+                        Valor XP
+                    </label>
+                        <input type="number" value={amount} onChange={(e) => { setAmount(parseInt(e.target.value)) }} />
+                </div>
 
-                <input type="submit" value="Enviar" />
+                <input className={styles.formButton} type="submit" value="Salvar" />
             </form>
         </div>
     )

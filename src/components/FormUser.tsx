@@ -41,20 +41,26 @@ export function FormUser() {
         <div className={styles.formContainer}>
             <h1>Cadastro Usuário</h1>
             <form onSubmit={handleSubmit}>
-                <label>
-                    Nome:
-                <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} />
-                </label>
-                <label>
-                    Username:
-                <input type="text" value={username} onChange={(e) => { setUsername(e.target.value) }} />
-                </label>
-                <label>
-                    Image:
-                <input type="text" value={image} onChange={(e) => { setImage(e.target.value) }} />
-                </label>
+                <div className={styles.inputContainer}>
+                    <label>
+                        Nome
+                    </label>
+                    <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} />
+                </div>
+                <div className={styles.inputContainer}>
+                    <label>
+                        Username
+                    </label>
+                    <input type="text" value={username} onChange={(e) => { setUsername(e.target.value) }} />
+                </div>
+                <div className={styles.inputContainer}>
+                    <label>
+                        Imagem
+                    </label>
+                    <input type="text" value={image} onChange={(e) => { setImage(e.target.value) }} />
+                </div>
 
-                <input type="submit" value="Enviar" />
+                <input className={styles.formButton} type="submit" value="Salvar" />
             </form>
         </div>
     )
